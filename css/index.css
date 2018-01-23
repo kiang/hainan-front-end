@@ -1,0 +1,48 @@
+/* line 1, ../sass/partials/_nav.scss */
+.item {
+  text-align: center;
+  font-size: 1.2rem;
+  display: inline-block;
+  padding: 20px 0;
+}
+
+/* line 8, ../sass/partials/_nav.scss */
+#active,
+#feedback,
+#home {
+  opacity: 0;
+  position: absolute;
+}
+
+/* line 15, ../sass/partials/_nav.scss */
+#home:checked ~ header nav [for="home"],
+#active:checked ~ header nav [for="active"],
+#feedback:checked ~ header nav [for="feedback"] {
+  font-weight: bold;
+}
+
+/* line 21, ../sass/partials/_nav.scss */
+article {
+  display: none;
+}
+
+/* line 25, ../sass/partials/_nav.scss */
+#active:checked ~ article[data-section="active"],
+#feedback:checked ~ article[data-section="feedback"],
+#home:checked ~ article[data-section="home"] {
+  min-height: 100vh;
+  display: block;
+}
+
+/* line 1, ../sass/partials/_footer.scss */
+footer {
+  background-color: #ccc;
+  text-align: center;
+  padding: 50px 0;
+}
+
+/* line 5, ../sass/index.scss */
+.view-area {
+  max-width: 1366px;
+  margin: auto;
+}
