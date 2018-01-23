@@ -1,35 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>乾淨海灘孵化器</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">    <link rel="stylesheet" href="./css/index.css">
-</head>
-<body>
-    <input type="radio" name="nav" id="home" checked>
-    <input type="radio" name="nav" id="active">
-    <input type="radio" name="nav" id="feedback">
-    <header class="container-fluid view-area">
-        <div class="banner">
-            <img src="https://picsum.photos/1366/400/?gravity=center" alt="" class="img-fluid d-block">
-        </div>
-        <nav class="row">
-            <label for="home" class="col-12 col-sm-4 item">首頁</label>
-            <label for="active" class="col-12 col-sm-4 item">淨灘活動</label>
-            <label for="feedback" class="col-12 col-sm-4 item">回報海灘狀況</label>
-        </nav>
-    </header>
-    <article class="view-area" data-section="home">首頁要顯示的內容</article>
-    <article class="view-area" data-section="active">參加 / 發起活動</article>
-    <article class="view-area" data-section="feedback">上傳照片的回報頁面</article>
-    <footer>
-        2018 - 海南機團隊
-    </footer>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>乾淨海灘孵化器</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="./css/index.css">
+    </head>
+    <body>
+        <input type="radio" name="nav" id="home" checked>
+        <input type="radio" name="nav" id="active">
+        <input type="radio" name="nav" id="feedback">
+        <header class="container-fluid view-area">
+            <div class="banner">
+                <img src="https://picsum.photos/1366/400/?gravity=center" alt="" class="img-fluid d-block">
+            </div>
+            <nav class="row">
+                <label for="home" class="col-12 col-sm-4 item">首頁</label>
+                <label for="active" class="col-12 col-sm-4 item">淨灘活動</label>
+                <label for="feedback" class="col-12 col-sm-4 item">回報海灘狀況</label>
+            </nav>
+        </header>
+        <article class="container-fluid view-area" data-section="home">
+            <h2><small>等你加入的</small>淨灘活動</h2>
+            <div class="table-responsive">
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">Time</th>
+                            <th scope="col">地點</th>
+                            <th scope="col">人數</th>
+                            <th scope="col">要參加?</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2018-02-06</td>
+                            <td>西子灣</td>
+                            <td>12</td>
+                            <td><button type="button" class="btn btn-primary">參加</button></td>
+                        </tr>
+                        <tr>
+                            <td>2018-02-06</td>
+                            <td>西子灣</td>
+                            <td>12</td>
+                            <td><button type="button" class="btn btn-primary">參加</button></td>
+                        </tr>
+                        <tr>
+                            <td>2018-02-06</td>
+                            <td>西子灣</td>
+                            <td>12</td>
+                            <td><button type="button" class="btn btn-primary">參加</button></td>
+                        </tr>
+                        <tr>
+                            <td>2018-02-06</td>
+                            <td>西子灣</td>
+                            <td>12</td>
+                            <td><button type="button" class="btn btn-primary">參加</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <h2><small>已通報的</small>海灘狀況</h2>
+            <table class="table table-striped table-hover">
+                <tbody>
+                    <tr>
+                        <th scope="col">Time</th>
+                        <th scope="col">地點</th>
+                        <th scope="col">需要淨灘?</th>
+                        <th scope="col">要發起?</th>
+                    </tr>
+                    <tr>
+                        <td>2017-01-03</td>
+                        <td>漁光島 月牙海灣</td>
+                        <td>要</td>
+                        <td><button type="button" class="btn btn-primary">發起</button></td>
+                    </tr>
+                    <tr>
+                        <td>2017-01-03</td>
+                        <td>黃金海岸</td>
+                        <td>要</td>
+                        <td><button type="button" class="btn btn-primary">發起</button></td>
+                    </tr>
+                    <tr>
+                        <td>2017-01-03</td>
+                        <td>安平觀夕平台</td>
+                        <td>要</td>
+                        <td><button type="button" class="btn btn-primary">發起</button></td>
+                    </tr>
+                    <tr>
+                        <td>2017-01-03</td>
+                        <td>四草濕地</td>
+                        <td>要</td>
+                        <td><button type="button" class="btn btn-primary">發起</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </article>
+        <article class="container-fluid view-area" data-section="active">
+            <form class="createActive" action="index.html" method="post">
+                <div class="form-group">
+                    <label for="activeName">活動名稱</label>
+                    <input type="text" class="form-control" id="activeName" placeholder="為你的活動取個名字">
+                </div>
+                <div class="form-group">
+                    <label for="activeLocation">海灘名稱</label>
+                    <input type="text" class="form-control" id="activeLocation" placeholder="要淨哪一個海灘">
+                </div>
+                <div class="form-group">
+                    <label for="activeDescription">活動介紹文字</label>
+                    <textarea class="form-control" id="activeDescription" rows="3"></textarea>
+                </div>
+                <div class="form-group form-row">
+                    <div class="col-12 col-sm-6">
+                        <label for="activeOwner">聯絡人</label>
+                        <input type="text" class="form-control" id="activeOwner" placeholder="聯絡人的名稱或稱呼">
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        <label for="activeOwnerPhone">聯絡電話</label>
+                        <input type="text" class="form-control" id="activeOwnerPhone" placeholder="Last name">
+                    </div>
+                </div>
+                <div class="form-group form-row">
+                    <div class="col-12 col-sm-6">
+                        <label for="assembleDateTime">活動時間</label>
+                        <input type="text" class="form-control" id="assembleDateTime" placeholder="Last name">
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        <label for="assembleLocation">集合地點</label>
+                        <input type="text" class="form-control" id="assembleLocation" placeholder="聯絡人的名稱或稱呼">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="button" class="btn btn-primary ml-auto d-block">送出</button>
+                </div>
+            </form>
+        </article>
+        <article class="container-fluid view-area" data-section="feedback">
+            <form class="createFeedback" action="index.html" method="post">
+                <div class="form-group">
+                    <label for="feedbackLocation">通報哪個海灘?</label>
+                    <select class="form-control" id="feedbackLocation">
+                      <option>黃金海岸</option>
+                      <option>旗津海水浴場</option>
+                      <option>西子灣</option>
+                      <option>漁光島 月牙海灣</option>
+                      <option>風車公園</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="activeDescription">活動介紹文字</label>
+                    <textarea class="form-control" id="activeDescription" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="activeDescription">需要淨灘</label>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="feedbackForActiveYes" value="option1">
+                        <label class="form-check-label" for="feedbackForActiveYes">是</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="feedbackForActiveNo" value="option2">
+                        <label class="form-check-label" for="feedbackForActiveNo">否</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <img src="" alt="">
+                    <button type="button" class="btn btn-primary">選擇照片</button>
+                </div>
+                <div class="form-group">
+                    <button type="button" class="btn btn-primary ml-auto d-block">送出</button>
+                </div>
+            </form>
+        </article>
+        <footer class="container-fluid">
+            2018 - 海南機團隊
+        </footer>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-</body>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    </body>
 </html>

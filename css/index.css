@@ -22,7 +22,7 @@
 }
 
 /* line 21, ../sass/partials/_nav.scss */
-article {
+input ~ article.view-area {
   display: none;
 }
 
@@ -32,6 +32,11 @@ article {
 #home:checked ~ article[data-section="home"] {
   min-height: 100vh;
   display: block;
+}
+
+/* line 1, ../sass/partials/_article.scss */
+article {
+  padding-bottom: 15px;
 }
 
 /* line 1, ../sass/partials/_footer.scss */
