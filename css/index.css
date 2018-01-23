@@ -1,32 +1,41 @@
 /* line 1, ../sass/partials/_nav.scss */
-.item {
+nav {
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+  box-shadow: 0 5px 5px -5px #ccc;
+}
+/* line 8, ../sass/partials/_nav.scss */
+nav .item {
   text-align: center;
   font-size: 1.2rem;
   display: inline-block;
   padding: 20px 0;
 }
 
-/* line 8, ../sass/partials/_nav.scss */
+/* line 16, ../sass/partials/_nav.scss */
 #active,
 #feedback,
 #home {
   opacity: 0;
   position: absolute;
+  top: 50vh;
 }
 
-/* line 15, ../sass/partials/_nav.scss */
-#home:checked ~ header nav [for="home"],
-#active:checked ~ header nav [for="active"],
-#feedback:checked ~ header nav [for="feedback"] {
+/* line 24, ../sass/partials/_nav.scss */
+#home:checked ~ nav [for="home"],
+#active:checked ~ nav [for="active"],
+#feedback:checked ~ nav [for="feedback"] {
   font-weight: bold;
 }
 
-/* line 21, ../sass/partials/_nav.scss */
+/* line 30, ../sass/partials/_nav.scss */
 input ~ article.view-area {
   display: none;
 }
 
-/* line 25, ../sass/partials/_nav.scss */
+/* line 34, ../sass/partials/_nav.scss */
 #active:checked ~ article[data-section="active"],
 #feedback:checked ~ article[data-section="feedback"],
 #home:checked ~ article[data-section="home"] {
@@ -36,6 +45,7 @@ input ~ article.view-area {
 
 /* line 1, ../sass/partials/_article.scss */
 article {
+  padding-top: 25px;
   padding-bottom: 15px;
 }
 
