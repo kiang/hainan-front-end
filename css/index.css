@@ -5,8 +5,9 @@ nav {
   background-color: #fff;
   border-bottom: 1px solid #ccc;
   box-shadow: 0 5px 5px -5px #ccc;
+  z-index: 10;
 }
-/* line 8, ../sass/partials/_nav.scss */
+/* line 9, ../sass/partials/_nav.scss */
 nav .item {
   text-align: center;
   font-size: 1.2rem;
@@ -14,7 +15,7 @@ nav .item {
   padding: 20px 0;
 }
 
-/* line 16, ../sass/partials/_nav.scss */
+/* line 17, ../sass/partials/_nav.scss */
 #active,
 #feedback,
 #home {
@@ -23,19 +24,19 @@ nav .item {
   top: 50vh;
 }
 
-/* line 24, ../sass/partials/_nav.scss */
+/* line 25, ../sass/partials/_nav.scss */
 #home:checked ~ nav [for="home"],
 #active:checked ~ nav [for="active"],
 #feedback:checked ~ nav [for="feedback"] {
   font-weight: bold;
 }
 
-/* line 30, ../sass/partials/_nav.scss */
+/* line 31, ../sass/partials/_nav.scss */
 input ~ article.view-area {
   display: none;
 }
 
-/* line 34, ../sass/partials/_nav.scss */
+/* line 35, ../sass/partials/_nav.scss */
 #active:checked ~ article[data-section="active"],
 #feedback:checked ~ article[data-section="feedback"],
 #home:checked ~ article[data-section="home"] {
@@ -60,11 +61,4 @@ footer {
 .view-area {
   max-width: 1366px;
   margin: auto;
-}
-
-.previewArea{
-  width: 200px;
-  height: 200px;
-  background-size: contain;
-  background-repeat: no-repeat;
 }
