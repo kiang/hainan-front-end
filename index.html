@@ -6,9 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>乾淨海灘孵化器</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
     <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="googlemap.css">
+    <script async defer src="https://maps.googleapis.com/maps/api/js?AIzaSyCT0r1YOriUdRU0rtYZlfH3fRQXHqvsukY&callback=initMap"></script>
 </head>
 
 <body>
@@ -30,96 +35,48 @@
     <article class="container-fluid view-area" data-section="home">
         <h2>
             <small>等你加入的</small>淨灘活動</h2>
-        <div class="table-responsive">
-            <table class="table table-striped table-hover">
-                <thead>
-                    <tr>
-                        <th scope="col">Time</th>
-                        <th scope="col">地點</th>
-                        <th scope="col">人數</th>
-                        <th scope="col">要參加?</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>2018-02-06</td>
-                        <td>西子灣</td>
-                        <td>12</td>
-                        <td>
-                            <button type="button" class="btn btn-primary">參加</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2018-02-06</td>
-                        <td>西子灣</td>
-                        <td>12</td>
-                        <td>
-                            <button type="button" class="btn btn-primary">參加</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2018-02-06</td>
-                        <td>西子灣</td>
-                        <td>12</td>
-                        <td>
-                            <button type="button" class="btn btn-primary">參加</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2018-02-06</td>
-                        <td>西子灣</td>
-                        <td>12</td>
-                        <td>
-                            <button type="button" class="btn btn-primary">參加</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="row">
+            <div class="mapContainer col-lg-8 col-md-12">
+                <div id = "map"></div>
+            </div>
+            <div id="listing" class="col-lg-4 col-md-12">
+                <table id="resultsTable">
+                    <tbody id="results"></tbody>
+                </table>
+            </div>
+            <div style="display: none">
+                <div id="info-content">
+                    <table>
+                        <p id='activity'></p>
+                        <tr id="iw-address-row" class="iw_table_row">
+                            <td class="iw_attribute_name">海灘名稱: </td>
+                            <td id="iw-beach"></td>
+                        </tr>
+                        <tr id="iw-phone-row" class="iw_table_row">
+                            <td class="iw_attribute_name">縣市: </td>
+                            <td id="iw-city"></td>
+                        </tr>
+                        <tr id="iw-rating-row" class="iw_table_row">
+                            <td class="iw_attribute_name">活動日期: </td>
+                            <td id="iw-date"></td>
+                        </tr>
+                        <tr id="iw-rating-row" class="iw_table_row">
+                            <td class="iw_attribute_name">集合地點: </td>
+                            <td id="iw-location"></td>
+                        </tr>
+                        <tr id="iw-website-row" class="iw_table_row">
+                            <td class="iw_attribute_name">聯絡人: </td>
+                            <td id="iw-host"></td>
+                        </tr>
+                        <tr id="iw-website-row" class="iw_table_row">
+                            <td class="iw_attribute_name">聯絡電話: </td>
+                            <td id="iw-phone"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <button class='mark'>Mark All !!</button>
         </div>
-        <h2>
-            <small>已通報的</small>海灘狀況</h2>
-        <table class="table table-striped table-hover">
-            <tbody>
-                <tr>
-                    <th scope="col">Time</th>
-                    <th scope="col">地點</th>
-                    <th scope="col">需要淨灘?</th>
-                    <th scope="col">要發起?</th>
-                </tr>
-                <tr>
-                    <td>2017-01-03</td>
-                    <td>漁光島 月牙海灣</td>
-                    <td>要</td>
-                    <td>
-                        <button type="button" class="btn btn-primary">發起</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2017-01-03</td>
-                    <td>黃金海岸</td>
-                    <td>要</td>
-                    <td>
-                        <button type="button" class="btn btn-primary">發起</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2017-01-03</td>
-                    <td>安平觀夕平台</td>
-                    <td>要</td>
-                    <td>
-                        <button type="button" class="btn btn-primary">發起</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2017-01-03</td>
-                    <td>四草濕地</td>
-                    <td>要</td>
-                    <td>
-                        <button type="button" class="btn btn-primary">發起</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
     </article>
     <article class="container-fluid view-area" data-section="active">
         <form class="createActive" action="index.html" method="post">
@@ -189,17 +146,17 @@
             </div>
             <div class="form-group">
                 <div class='controller'>
-                    <input type='file' accept="image/*" class = 'selectImage' required>
-                    <button class = "uploadImgur">上傳圖片</button>
+                    <input type='file' accept="image/*" class='selectImage' required>
+                    <button class="uploadImgur">上傳圖片</button>
                 </div>
 
                 <div class='previewTable'>
                     <p class='imageStatus'>請選擇要上傳的圖片</p>
-                    <div class = 'previewArea'></div>
+                    <div class='previewArea'></div>
                 </div>
             </div>
             <div class="form-group">
-                <button type="button" class="btn btn-primary ml-auto d-block">送出</button>
+                <button type="button" class="btn btn-primary ml-auto d-block reportSubmit">送出</button>
             </div>
         </form>
     </article>
@@ -207,11 +164,9 @@
         2018 - 海南機團隊
     </footer>
     <script src="uploadPicture.js"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
+    <script src="googleMap.js"></script>
+    <script src="getBrowser.js"></script>
+    
 </body>
 
 </html>
