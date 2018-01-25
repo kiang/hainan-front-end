@@ -11,7 +11,7 @@ let testReport = {
 
 
 $.ajax({
-    url:'http://172.105.219.35:3000/api/beach/notification',
+    url:'https://172.105.219.35:3000/api/beach/notification',
     type:'GET',
     // dataType:'json',
     success: function (response) {
