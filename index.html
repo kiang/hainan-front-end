@@ -13,7 +13,6 @@
         crossorigin="anonymous">
     <link rel="stylesheet" href="./css/index.css">
     <link rel="stylesheet" href="./css/googleMap.css">
-    
 </head>
 
 <body>
@@ -34,15 +33,20 @@
     </nav>
     <article class="container-fluid view-area" data-section="home">
         <h2>
-            <small>等你加入的</small>淨灘活動</h2>
+            <small>等你加入的</small>淨灘活動
+        </h2>
+        <button class='mark'>Mark All !!</button>
+
         <div class="row">
-            <div class="mapContainer col-lg-8 col-md-12">
+            <div class="mapContainer col-sm-6 col-12">
                 <div id = "map"></div>
             </div>
-            <div id="listing" class="col-lg-4 col-md-12">
-                <table id="resultsTable">
-                    <tbody id="results"></tbody>
-                </table>
+            <div class="col-sm-6 col-12">
+                 <div id="listing">
+                     <table id="resultsTable">
+                         <tbody id="results"></tbody>
+                     </table>
+                 </div>
             </div>
             <div style="display: none">
                 <div id="info-content">
@@ -75,7 +79,6 @@
                     </table>
                 </div>
             </div>
-            <button class='mark'>Mark All !!</button>
         </div>
     </article>
     <article class="container-fluid view-area" data-section="active">
@@ -167,7 +170,7 @@
     <script src="./googleMapAPI.js"></script>
     <script src="./getBrowser.js"></script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCT0r1YOriUdRU0rtYZlfH3fRQXHqvsukY&callback=initMap"></script>
-    
+
 </body>
 
 </html>
