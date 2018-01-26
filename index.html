@@ -6,16 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>乾淨海灘孵化器</title>
-    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./css/index.css">
     <link rel="stylesheet" href="./css/googleMap.css">
 </head>
-
 <body>
     <header class="container-fluid view-area">
         <div class="banner">
@@ -25,13 +21,27 @@
     <input type="radio" name="nav" id="index" checked>
     <input type="radio" name="nav" id="active">
     <input type="radio" name="nav" id="feedback">
-    <nav class="container-fluid view-area">
-        <div class="row">
-            <div onclick="router.go('index')" class="col-12 col-sm-4 item">首頁</div>
-            <div onclick="router.go('active')" class="col-12 col-sm-4 item">淨灘活動</div>
-            <div onclick="router.go('feedback')" class="col-12 col-sm-4 item">回報海灘狀況</div>
-        </div>
+
+    <nav class="container-fluid view-area navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">淨灘系統</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#!index">首頁</a>
+            </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#!active">淨灘活動</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#!feedback">回報海灘狀況</a>
+          </li>
+        </ul>
+      </div>
     </nav>
+
     <article class="container-fluid view-area" data-section="index">
         <div class="filter">
             <label id="filterLabel">目前顯示：</label>
@@ -196,6 +206,10 @@
     <footer class="container-fluid">
         2018 - 海南機團隊
     </footer>
+    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="./js/uploadPicture.js"></script>
     <script src="./js/googleMapAPI.js"></script>
     <script src="./js/getBrowser.js"></script>
