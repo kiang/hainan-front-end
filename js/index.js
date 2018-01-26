@@ -9,22 +9,19 @@ listing.addEventListener('click', () => {
     mapsList.checked = false;
 
     //之後接到 API 成功時，在非同步時做這件事。現在先假裝有在跑。
-    showActive ();
-})
-
-
-function showActive () {
-    const activeDetail = document.querySelector('#activeDetail');
-
-
-    const data = {
+    showActive ({
         beach: "某個海灘",
         city: "城市",
         date: "活動日期",
         location: "集合地點",
         host: "聯絡人",
         phone: "聯絡電話"
-    }
+    });
+})
+
+
+function showActive (data) {
+    const activeDetail = document.querySelector('#activeDetail');
 
     //tr list to table
     const table = document.createElement('table');

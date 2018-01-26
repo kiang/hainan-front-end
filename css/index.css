@@ -40,7 +40,6 @@ input ~ article.view-area {
 #active:checked ~ article[data-section="active"],
 #feedback:checked ~ article[data-section="feedback"],
 #index:checked ~ article[data-section="index"] {
-  min-height: 100vh;
   display: block;
 }
 
