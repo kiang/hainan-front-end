@@ -61,4 +61,42 @@ footer {
 .view-area {
   max-width: 1366px;
   margin: auto;
+  position: relative;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+}
+
+/* line 14, ../sass/index.scss */
+#mapsList {
+  opacity: 0;
+  position: absolute;
+}
+
+/* line 19, ../sass/index.scss */
+#mapsList:checked ~ .listContainer {
+  transform: translateX(-100%);
+}
+
+/* line 23, ../sass/index.scss */
+.listContainer {
+  position: absolute;
+  left: 100%;
+  transition: transform 0.3s;
+  background-color: #fff;
+}
+/* line 29, ../sass/index.scss */
+.listContainer #listing {
+  font-size: 0.8rem;
+}
+/* line 33, ../sass/index.scss */
+.listContainer .mapsListBars {
+  position: absolute;
+  top: 0;
+  right: calc(100% - 2px);
+  padding: 2px 8px;
+  background-color: #fff;
+  border-radius: 5px 0 0 5px;
+  border: 2px solid black;
+  border-right: none;
 }

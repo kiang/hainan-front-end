@@ -11,6 +11,7 @@
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./css/index.css">
     <link rel="stylesheet" href="./css/googleMap.css">
 </head>
@@ -41,13 +42,15 @@
                 <option label="累積回報" value="reports"></option>
             </select>
         </div>
-        <div class='row'>
-            <div class="mapContainer col-md-8 col-sm-12">
+        <div class='row no-gutters'>
+            <div class="mapContainer col-12">
                 <div id="map"></div>
             </div>
-            <div class="listContainer col-md-4 col-sm-12">
+            <input type="checkbox" id="mapsList">
+            <div class="listContainer col-6">
+                <label for="mapsList" class="mapsListBars"><i class="fa fa-bars"></i></label>
                 <div id="listing">
-                    <table id="resultsTable">
+                    <table id="resultsTable" class="table table-hover">
                         <tbody id="results"></tbody>
                     </table>
                 </div>
@@ -194,12 +197,11 @@
     <footer class="container-fluid">
         2018 - 海南機團隊
     </footer>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCT0r1YOriUdRU0rtYZlfH3fRQXHqvsukY&callback=initMap"></script>
     <script src="./js/uploadPicture.js"></script>
     <script src="./js/googleMapAPI.js"></script>
     <script src="./js/getBrowser.js"></script>
     <script src="./js/router.js"></script>
     <script src="./js/index.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCT0r1YOriUdRU0rtYZlfH3fRQXHqvsukY&callback=initMap"></script>
 </body>
-
 </html>

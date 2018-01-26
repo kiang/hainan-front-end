@@ -10,11 +10,13 @@
 #listing {
     /* position: absolute; */
     /* width: 200px; */
-    height: 175px;
-    margin-top:10px;
+    height: 400px;
+    /* margin-top:10px; */
     cursor: pointer;
     overflow-x: hidden;
-    outline: solid 2px black;
+    /* outline: solid 2px black; */
+    border: 2px solid black;
+    border-right: none;
 }
 
 #findhotels {
@@ -99,7 +101,7 @@
     font-weight: bold;
 }
 
-.mapContainer {
+.mapContainer, .listContainer {
     margin-top:10px;
 }
 
