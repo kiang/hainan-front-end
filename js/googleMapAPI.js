@@ -160,9 +160,9 @@ function showActivityWindow(event) {
     activityInfoWindow.open(map, marker);
     document.getElementById('activity').innerHTML = `${marker.activity}`;
     document.getElementById('iw-beach').textContent = marker.sealinename;
-    document.getElementById('iw-city').textContent = marker.cityname;
+    // document.getElementById('iw-city').textContent = marker.cityname;
     document.getElementById('iw-date').textContent = marker.date;
-    document.getElementById('iw-location').textContent = 'location';
+    // document.getElementById('iw-location').textContent = 'location';
     document.getElementById('iw-host').textContent = '歐巴馬';
     document.getElementById('iw-phone').textContent = '09xxxxxxxx';
 };

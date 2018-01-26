@@ -90,6 +90,11 @@ footer {
   font-size: 0.8rem;
 }
 /* line 33, ../sass/index.scss */
+.listContainer #activeDetail {
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+/* line 38, ../sass/index.scss */
 .listContainer .mapsListBars {
   position: absolute;
   top: 0;

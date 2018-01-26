@@ -30,6 +30,11 @@
         font-size: 0.8rem;
     }
 
+    #activeDetail {
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
+
     .mapsListBars {
         position: absolute;
         top: 0;
