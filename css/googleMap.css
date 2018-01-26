@@ -102,3 +102,26 @@
 .mapContainer {
     margin-top:10px;
 }
+
+.reportImage {
+    width: 100px;
+    height: 100px;
+    border: solid 2px red;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#filterLabel {
+    margin: 20px 0;
+}
+
+#displayFilter {
+    width: 100px;
+}
+
+.previewArea{
+    width: 200px;
+    height: 200px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}

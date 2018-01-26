@@ -32,51 +32,80 @@
         </div>
     </nav>
     <article class="container-fluid view-area" data-section="home">
-        <h2>
-            <small>等你加入的</small>淨灘活動
-        </h2>
-        <button class='mark'>Mark All !!</button>
 
-        <div class="row">
-            <div class="mapContainer col-sm-6 col-12">
-                <div id = "map"></div>
+        <h2>
+            <small>等你加入的</small>淨灘活動</h2>
+        <div class="filter">
+            <label id="filterLabel">目前顯示：</label>
+            <select id="displayFilter" name="display">
+                <option label="近期活動" value="activities" selected></option>
+                <option label="累積回報" value="reports"></option>
+            </select>
+        </div>
+        <div class='row'>
+            <div class="mapContainer col-md-8 col-sm-12">
+                <div id="map"></div>
             </div>
-            <div class="col-sm-6 col-12">
-                 <div id="listing">
-                     <table id="resultsTable">
-                         <tbody id="results"></tbody>
-                     </table>
-                 </div>
-            </div>
-            <div style="display: none">
-                <div id="info-content">
-                    <table>
-                        <p id='activity'></p>
-                        <tr id="iw-address-row" class="iw_table_row">
-                            <td class="iw_attribute_name">海灘名稱: </td>
-                            <td id="iw-beach"></td>
-                        </tr>
-                        <tr id="iw-phone-row" class="iw_table_row">
-                            <td class="iw_attribute_name">縣市: </td>
-                            <td id="iw-city"></td>
-                        </tr>
-                        <tr id="iw-rating-row" class="iw_table_row">
-                            <td class="iw_attribute_name">活動日期: </td>
-                            <td id="iw-date"></td>
-                        </tr>
-                        <tr id="iw-rating-row" class="iw_table_row">
-                            <td class="iw_attribute_name">集合地點: </td>
-                            <td id="iw-location"></td>
-                        </tr>
-                        <tr id="iw-website-row" class="iw_table_row">
-                            <td class="iw_attribute_name">聯絡人: </td>
-                            <td id="iw-host"></td>
-                        </tr>
-                        <tr id="iw-website-row" class="iw_table_row">
-                            <td class="iw_attribute_name">聯絡電話: </td>
-                            <td id="iw-phone"></td>
-                        </tr>
+            <div class="listContainer col-md-4 col-sm-12">
+                <div id="listing">
+                    <table id="resultsTable">
+                        <tbody id="results"></tbody>
                     </table>
+                </div>
+            </div>
+        </div>
+
+        <div style="display: none">
+            <div id="activity-info-content">
+                <table>
+                    <p id='activity'></p>
+                    <tr id="iw-address-row" class="iw_table_row">
+                        <td class="iw_attribute_name">海灘名稱: </td>
+                        <td id="iw-beach"></td>
+                    </tr>
+                    <tr id="iw-phone-row" class="iw_table_row">
+                        <td class="iw_attribute_name">縣市: </td>
+                        <td id="iw-city"></td>
+                    </tr>
+                    <tr id="iw-rating-row" class="iw_table_row">
+                        <td class="iw_attribute_name">活動日期: </td>
+                        <td id="iw-date"></td>
+                    </tr>
+                    <tr id="iw-rating-row" class="iw_table_row">
+                        <td class="iw_attribute_name">集合地點: </td>
+                        <td id="iw-location"></td>
+                    </tr>
+                    <tr id="iw-website-row" class="iw_table_row">
+                        <td class="iw_attribute_name">聯絡人: </td>
+                        <td id="iw-host"></td>
+                    </tr>
+                    <tr id="iw-website-row" class="iw_table_row">
+                        <td class="iw_attribute_name">聯絡電話: </td>
+                        <td id="iw-phone"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div style="display: none">
+            <div id="report-info-content">
+                <table>
+                    <p id='report'></p>
+                    <tr id="iw-address-row" class="iw_table_row">
+                        <td class="iw_attribute_name">活動日期: </td>
+                        <td id="iw-reportDate"></td>
+                    </tr>
+                    <tr id="iw-phone-row" class="iw_table_row">
+                        <td class="iw_attribute_name">淨灘需求: </td>
+                        <td id="iw-clean"></td>
+                    </tr>
+                    <tr id="iw-rating-row" class="iw_table_row">
+                        <td class="iw_attribute_name">回報照片: </td>
+                        <td id="iw-image">
+                            <div class="reportImage">
+                        </td>
+                    </tr>
+                </table>
                 </div>
             </div>
         </div>
