@@ -18,8 +18,8 @@ nav {
 #feedback,
 #home {
     opacity: 0;
-    position: absolute;
-    top: 50vh;
+    position: fixed;
+    top: 0;
 }
 
 #home:checked ~ nav [for="home"],
