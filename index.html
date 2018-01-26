@@ -21,18 +21,17 @@
             <img src="https://picsum.photos/1366/400/?gravity=center" alt="" class="img-fluid d-block">
         </div>
     </header>
-    <input type="radio" name="nav" id="home" checked>
+    <input type="radio" name="nav" id="index" checked>
     <input type="radio" name="nav" id="active">
     <input type="radio" name="nav" id="feedback">
     <nav class="container-fluid view-area">
         <div class="row">
-            <label for="home" class="col-12 col-sm-4 item">首頁</label>
-            <label for="active" class="col-12 col-sm-4 item">淨灘活動</label>
-            <label for="feedback" class="col-12 col-sm-4 item">回報海灘狀況</label>
+            <div onclick="router.go('index')" class="col-12 col-sm-4 item">首頁</div>
+            <div onclick="router.go('active')" class="col-12 col-sm-4 item">淨灘活動</div>
+            <div onclick="router.go('feedback')" class="col-12 col-sm-4 item">回報海灘狀況</div>
         </div>
     </nav>
-    <article class="container-fluid view-area" data-section="home">
-
+    <article class="container-fluid view-area" data-section="index">
         <h2>
             <small>等你加入的</small>淨灘活動</h2>
         <div class="filter">
@@ -168,11 +167,11 @@
             <div class="form-group">
                 <label for="activeDescription">需要淨灘</label>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="feedbackForActiveYes" value="option1">
+                    <input class="form-check-input" type="radio" id="feedbackForActiveYes" value="option1">
                     <label class="form-check-label" for="feedbackForActiveYes">是</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="feedbackForActiveNo" value="option2">
+                    <input class="form-check-input" type="radio" id="feedbackForActiveNo" value="option2">
                     <label class="form-check-label" for="feedbackForActiveNo">否</label>
                 </div>
             </div>
@@ -195,11 +194,12 @@
     <footer class="container-fluid">
         2018 - 海南機團隊
     </footer>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCT0r1YOriUdRU0rtYZlfH3fRQXHqvsukY&callback=initMap"></script>
     <script src="./js/uploadPicture.js"></script>
     <script src="./js/googleMapAPI.js"></script>
     <script src="./js/getBrowser.js"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCT0r1YOriUdRU0rtYZlfH3fRQXHqvsukY&callback=initMap"></script>
-
+    <script src="./js/router.js"></script>
+    <script src="./js/index.js"></script>
 </body>
 
 </html>

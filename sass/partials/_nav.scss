@@ -16,13 +16,13 @@ nav {
 
 #active,
 #feedback,
-#home {
+#index {
     opacity: 0;
     position: fixed;
     top: 0;
 }
 
-#home:checked ~ nav [for="home"],
+#index:checked ~ nav [for="index"],
 #active:checked ~ nav [for="active"],
 #feedback:checked ~ nav [for="feedback"] {
     font-weight: bold;
@@ -34,7 +34,7 @@ input ~ article.view-area {
 
 #active:checked ~ article[data-section="active"],
 #feedback:checked ~ article[data-section="feedback"],
-#home:checked ~ article[data-section="home"] {
+#index:checked ~ article[data-section="index"] {
     min-height: 100vh;
     display: block;
 }
