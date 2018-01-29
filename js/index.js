@@ -14,6 +14,15 @@ function gotoFeedback () {
     // initFeedbacktMap();
 }
 
+$(document).ready(() => {
+    router.reload();
+
+    //send api for data
+
+    //if success
+    //init activityData
+})
+
 
 
 const listing = document.querySelector('#listing');
