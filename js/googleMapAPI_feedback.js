@@ -41,12 +41,17 @@ function initReportMap() {
                     // label: "999"
                 });
 
-                // createReportInfoWindow = new google.maps.InfoWindow({ map: reportMap });
-
-                // createReportInfoWindow.setPosition(reportCurrentPosition);
-                // createReportInfoWindow.setContent('目前回報地點！');
+                infoWindow = new google.maps.InfoWindow({
+                    content: '<p class = "feebackText">'+'回報位置'+'</p>'
+                });
+    
+                infoWindow.open(map, marker);
                 reportMap.setCenter(reportCurrentPosition);
                 reportMap.setZoom(15);
+
+                google.maps.event.addListener(marker, 'drag', showActivityWindow);
+                
+
             }, function () {
                 handleLocationError(true, createReportInfoWindow, reportMap.getCenter());
             });
@@ -62,7 +67,15 @@ function initReportMap() {
         // createReportInfoWindow.setContent('目前回報地點！');
         reportMap.setCenter(reportCurrentPosition);
         reportMap.setZoom(15);
-
-
     }
+}
+
+function showActivityWindow() {
+    let currentMarker = this;
+    let currentPositionText = currentMarker.getPosition().toString();
+    // infoWindow.setContent ('<p>Marker Location:' + currentPositionText + '</p>');
+    let currentPosition = currentMarker.getPosition().toJSON();
+    reportCurrentPosition = currentPosition;
+    console.log(currentPosition);
+    infoWindow.open(map, marker);
 }
