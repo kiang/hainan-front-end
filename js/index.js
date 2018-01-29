@@ -1,27 +1,38 @@
 var router = new Router();
 router.add('index', () => gotoIndex())
 router.add('active', () => active.checked = true)
-router.add('feedback', () => gotoFeedback() )
+router.add('feedback', () => gotoFeedback())
 
 
 function gotoIndex() {
     index.checked = true;
-    // initGmaps();
+    $(window).one('load', () => {
+        initIndexMap();
+    })
 }
 
-function gotoFeedback () {
+function gotoFeedback() {
     feedback.checked = true;
-    // initFeedbacktMap();
+    $(window).one('load', () => {
+        initReportMap();
+    })
 }
 
 $(document).ready(() => {
-    router.reload();
+    router.reload()
+})
+
+// $(window).on('load', () => {
+
+    // initIndexMap();
+    // initReportMap();
+    // router.reload();
 
     //send api for data
 
     //if success
     //init activityData
-})
+// })
 
 
 
@@ -30,7 +41,7 @@ listing.addEventListener('click', () => {
     mapsList.checked = false;
 
     //之後接到 API 成功時，在非同步時做這件事。現在先假裝有在跑。
-    showActive ({
+    showActive({
         beach: "某個海灘",
         city: "城市",
         date: "活動日期",
@@ -41,7 +52,7 @@ listing.addEventListener('click', () => {
 })
 
 
-function showActive (data) {
+function showActive(data) {
     const activeDetail = document.querySelector('#activeDetail');
 
     //tr list to table

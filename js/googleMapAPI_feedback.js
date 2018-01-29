@@ -5,13 +5,16 @@ let reportMap;
 let createReportInfoWindow;
 
 const feedbackPage = document.querySelector('.feedbackPage');
-feedbackPage.addEventListener('click', loadFeedbackMap);
+
 
 let reportCurrentPosition;
 
+feedbackPage.addEventListener('click', loadFeedbackMap);
 function loadFeedbackMap() {
-    window.addEventListener('hashchange', initReportMap);
+    window.addEventListener('hashchange', initReportMap, {once: true});
 }
+
+// window.addEventListener('hashchange', initReportMap);
 
 function initReportMap() {
     if (reportMap === undefined) {
