@@ -9,9 +9,10 @@ const indexPage = document.querySelector('.indexPage');
 
 indexPage.addEventListener('click', loadIndexMap);
 
+// window.addEventListener('hashchange', initIndexMap);
 
 function loadIndexMap() {
-    window.addEventListener('hashchange', initMap);
+    window.addEventListener('hashchange', initIndexMap, {once: true});
 }
 
 
@@ -37,7 +38,8 @@ let reportData = [
 
 let markers = [];
 
-function initMap() {
+function initIndexMap() {
+    console.log('load')
     //HomePage Map
     map = new google.maps.Map(document.getElementById('map'), {
         zoom: 7,
