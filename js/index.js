@@ -3,7 +3,6 @@ router.add('index', () => gotoIndex())
 router.add('active', () => active.checked = true)
 router.add('feedback', () => gotoFeedback() )
 
-
 function gotoIndex() {
     index.checked = true;
     // initGmaps();
@@ -22,8 +21,6 @@ $(document).ready(() => {
     //if success
     //init activityData
 })
-
-
 
 const listing = document.querySelector('#listing');
 listing.addEventListener('click', () => {
