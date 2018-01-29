@@ -5,6 +5,15 @@ let reportImage = document.querySelector('.reportImage');
 let map;
 let activityInfoWindow;
 let reportInfoWindow;
+const indexPage = document.querySelector('.indexPage');
+
+indexPage.addEventListener('click', loadIndexMap);
+
+
+function loadIndexMap() {
+    window.addEventListener('hashchange', initMap);
+}
+
 
 const markA = "http://maps.gstatic.com/mapfiles/markers2/marker";
 const markB = "https://developers.google.com/maps/documentation/javascript/images/marker_green"
@@ -29,6 +38,7 @@ let reportData = [
 let markers = [];
 
 function initMap() {
+    //HomePage Map
     map = new google.maps.Map(document.getElementById('map'), {
         zoom: 7,
         center: { lat: 23.5, lng: 121 },
@@ -43,7 +53,6 @@ function initMap() {
     });
     dropActivityMarker(markA);
 };
-
 
 function display(event) {
     map.setZoom(7);

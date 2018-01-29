@@ -1,0 +1,68 @@
+#map {
+    height: 400px;
+    width: 100%;
+}
+
+
+#listing {
+    height: 400px;
+    /* margin-top:10px; */
+    cursor: pointer;
+    overflow-x: hidden;
+    /* outline: solid 2px black; */
+    border: 2px solid black;
+    border-right: none;
+}
+
+#resultsTable {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.iw_table_row {
+    height: 18px;
+}
+
+.iw_table_row td {
+    font-size: 0.9rem;
+}
+
+.iw_attribute_name {
+    font-weight: bolder;
+    text-align: left;
+}
+
+#activity{
+    margin:0;
+    font-size:1.2rem;
+    font-weight: bold;
+}
+
+.mapContainer, .listContainer {
+    margin-top:10px;
+}
+
+.reportImage {
+    width: 100px;
+    height: 100px;
+    /* border: solid 2px red; */
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#filterLabel {
+    margin: 20px 0;
+}
+
+#displayFilter {
+    width: 120px;
+}
+
+.previewArea{
+    width: 200px;
+    height: 200px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+
