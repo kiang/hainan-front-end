@@ -1,7 +1,19 @@
 var router = new Router();
-router.add('index', () => index.checked = true)
+router.add('index', () => gotoIndex())
 router.add('active', () => active.checked = true)
-router.add('feedback', () => feedback.checked = true)
+router.add('feedback', () => gotoFeedback() )
+
+
+function gotoIndex() {
+    index.checked = true;
+    // initGmaps();
+}
+
+function gotoFeedback () {
+    feedback.checked = true;
+    // initFeedbacktMap();
+}
+
 
 
 const listing = document.querySelector('#listing');
