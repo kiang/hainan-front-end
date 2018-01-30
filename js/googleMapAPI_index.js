@@ -352,6 +352,14 @@ function showActivityWindow(event) {
     // document.getElementById('iw-location').textContent = 'location';
     document.getElementById('iw-host').textContent = '歐巴馬';
     document.getElementById('iw-phone').textContent = '09xxxxxxxx';
+    showActive({
+        beach: "某個海灘",
+        city: "城市",
+        date: "活動日期",
+        location: "集合地點",
+        host: "聯絡人",
+        phone: "聯絡電話"
+    });
 };
 
 function showReportWindow(event) {
@@ -364,4 +372,12 @@ function showReportWindow(event) {
     document.getElementById('iw-reportDate').textContent = marker.date;
     document.getElementById('iw-clean').textContent = marker.clean;
     reportImage.style.backgroundImage = `url(https://i.imgur.com/FtsBIRx.jpg)`;
+    showActive({
+        beach: "某個海灘",
+        city: "城市",
+        date: "活動日期",
+        location: "集合地點",
+        host: "聯絡人",
+        phone: "聯絡電話"
+    });
 };
