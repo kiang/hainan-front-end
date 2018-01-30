@@ -3,7 +3,6 @@ router.add('index', () => gotoIndex())
 router.add('active', () => active.checked = true)
 router.add('feedback', () => gotoFeedback())
 
-
 function gotoIndex() {
     index.checked = true;
     $(window).one('load', () => {
@@ -33,8 +32,6 @@ $(document).ready(() => {
     //if success
     //init activityData
 // })
-
-
 
 const listing = document.querySelector('#listing');
 listing.addEventListener('click', () => {
