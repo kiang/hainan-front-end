@@ -1,25 +1,4 @@
-const displayFilter = document.querySelector('#displayFilter');
-displayFilter.addEventListener('change', display);
-const results = document.getElementById('results');
-let reportImage = document.querySelector('.reportImage');
-let map;
-let activityInfoWindow;
-let reportInfoWindow;
-const indexPage = document.querySelector('.indexPage');
-
-indexPage.addEventListener('click', loadIndexMap);
-
-// window.addEventListener('hashchange', initIndexMap);
-
-function loadIndexMap() {
-    window.addEventListener('hashchange', initIndexMap, { once: true });
-}
-
-
-const markA = "http://maps.gstatic.com/mapfiles/markers2/marker";
-const markB = "https://developers.google.com/maps/documentation/javascript/images/marker_green"
-
-
+//fake data
 let activityData = [
     {
         "cityname": "臺南市", "sealinename": "黃金海岸", "coordinates": [
@@ -171,25 +150,39 @@ let reportData = [
                 24.014478783106245
             ]
         ], "clean": "否", "date": "2017/05/04"
-    },
-    {
-        "cityname": "新北市", "sealinename": "龍洞地質公園停車場至龍安廟前海岸", "coordinates": [
-            [
-                121.91305137141984,
-                25.1141317045611
-            ],
-            [
-                121.91292285919191,
-                25.114015418454322
-            ]
-        ], "clean": "是", "date": "2017/06/05"
     }
 ];
 
-let markers = [];
+const displayFilter = document.querySelector('#displayFilter');
+displayFilter.addEventListener('change', display);
 
+function display(event) {
+    map.setZoom(7);
+    map.setCenter({ lat: 23.5, lng: 121 });
+    clearResults();
+    clearMarkers();
+    if (this.value === "activities") {
+        dropActivityMarker();
+    } else {
+        dropReportMarker()
+    }
+};
+
+const indexPage = document.querySelector('.indexPage');
+indexPage.addEventListener('click', loadIndexMap);
+
+// window.addEventListener('hashchange', initIndexMap);
+function loadIndexMap() {
+    displayFilter.value = "activities";
+    window.addEventListener('hashchange', initIndexMap, { once: true });
+}
+
+
+let map;
+let activityInfoWindow;
+let reportInfoWindow;
 function initIndexMap() {
-    console.log('load')
+    // console.log('load')
     //HomePage Map
     map = new google.maps.Map(document.getElementById('map'), {
         zoom: 7,
@@ -203,92 +196,75 @@ function initIndexMap() {
     reportInfoWindow = new google.maps.InfoWindow({
         content: document.getElementById('report-info-content')
     });
-    dropActivityMarker(markA);
+    dropActivityMarker();
 };
 
-function display(event) {
-    map.setZoom(7);
-    map.setCenter({ lat: 23.5, lng: 121 });
-    console.log(this.value)
-    clearResults();
-    clearMarkers();
-    if (this.value === "activities") {
-        dropActivityMarker();
-    } else {
-        dropReportMarker()
-    }
-};
-
+let markers = [];
 function dropActivityMarker() {
     removeAllSealine();
-    for (var i = 0; i < activityData.length; i++) {
-        let markerLetter = String.fromCharCode('A'.charCodeAt(0) + (i % 26));
+    clearResults();
+    clearMarkers();
+    activityData.forEach(function(beach, index){
+        let markerLetter = String.fromCharCode('A'.charCodeAt(0) + (index % 26));
         let markerIcon = `./css/GoogleMarkers/green_Marker${markerLetter}.png`;
-        let allCoords = activityData[i].coordinates;
-        let coordPoints = allCoords.length;
-        let coord = allCoords.reduce(function (accumulator, currentValue) {
-            console.log(accumulator, currentValue)
-            return [(accumulator[0]) + (currentValue[0]) / coordPoints, (accumulator[1]) + (currentValue[1]) / coordPoints];
+        let coord = beach.coordinates.reduce(function (accumulator, currentValue) {
+            // console.log(accumulator, currentValue)
+            return [(accumulator[0]) + (currentValue[0]) / beach.coordinates.length, (accumulator[1]) + (currentValue[1]) / beach.coordinates.length];
         }, [0, 0]);
-        let lat = coord[1];
-        let lng = coord[0];
 
-        markers[i] = new google.maps.Marker({
-            position: { lat: lat, lng: lng },
+        markers[index] = new google.maps.Marker({
+            position: { lat: coord[1], lng: coord[0] },
             animation: google.maps.Animation.DROP,
             icon: markerIcon,
-            activity: activityData[i].activity,
-            cityname: activityData[i].cityname,
-            sealinename: activityData[i].sealinename,
-            date: activityData[i].date
+            activity: beach.activity,
+            cityname: beach.cityname,
+            sealinename: beach.sealinename,
+            date: beach.date
         });
 
         let googleArray = [];
-        allCoords.forEach(function (coord) {
+        beach.coordinates.forEach(function (coord) {
             let coordObj = { lat: coord[1], lng: coord[0] };
             googleArray.push(coordObj);
         });
 
         dataFeature = { geometry: new google.maps.Data.MultiLineString([googleArray]) };
-
         map.data.add(dataFeature);
         map.data.setStyle({
             strokeWeight: 12,
             strokeColor: 'GREEN',
         });
 
-        google.maps.event.addListener(markers[i], 'click', showActivityWindow);
-        setTimeout(dropMarker(i), i * 300);
-        addResult(activityData[i], i, markerIcon);
-    };
+        google.maps.event.addListener(markers[index], 'click', showActivityWindow);
+        setTimeout(dropMarker(index), index * 300);
+        addResult(beach, index, markerIcon);
+    });
 };
 
 function dropReportMarker() {
     removeAllSealine();
-    for (var i = 0; i < reportData.length; i++) {
-        var markerLetter = String.fromCharCode('A'.charCodeAt(0) + (i % 26));
-        var markerIcon = `./css/GoogleMarkers/red_Marker${markerLetter}.png`;
-        let allCoords = activityData[i].coordinates;
-        let coordPoints = allCoords.length;
-        let coord = allCoords.reduce(function (accumulator, currentValue) {
+    clearResults();
+    clearMarkers();
+    reportData.forEach(function(beach, index){
+        let markerLetter = String.fromCharCode('A'.charCodeAt(0) + (index % 26));
+        let markerIcon = `./css/GoogleMarkers/red_Marker${markerLetter}.png`;
+        let coord = beach.coordinates.reduce(function (accumulator, currentValue) {
             // console.log(accumulator, currentValue)
-            return [(accumulator[0]) + (currentValue[0]) / coordPoints, (accumulator[1]) + (currentValue[1]) / coordPoints];
+            return [(accumulator[0]) + (currentValue[0]) / beach.coordinates.length, (accumulator[1]) + (currentValue[1]) / beach.coordinates.length];
         }, [0, 0]);
-        let lat = coord[1];
-        let lng = coord[0];
 
-        markers[i] = new google.maps.Marker({
-            position: { lat: lat, lng: lng },
+        markers[index] = new google.maps.Marker({
+            position: { lat: coord[1], lng: coord[0] },
             animation: google.maps.Animation.DROP,
             icon: markerIcon,
-            cityname: reportData[i].cityname,
-            sealinename: reportData[i].sealinename,
-            date: reportData[i].date,
-            clean: reportData[i].clean
+            cityname: beach.cityname,
+            sealinename: beach.sealinename,
+            date: beach.date,
+            clean: beach.clean
         });
 
         let googleArray = [];
-        allCoords.forEach(function (coord) {
+        beach.coordinates.forEach(function (coord) {
             let coordObj = { lat: coord[1], lng: coord[0] };
             googleArray.push(coordObj);
         });
@@ -300,10 +276,10 @@ function dropReportMarker() {
             strokeColor: 'Red',
         });
 
-        google.maps.event.addListener(markers[i], 'click', showReportWindow);
-        setTimeout(dropMarker(i), i * 300);
-        addResult(reportData[i], i, markerIcon);
-    };
+        google.maps.event.addListener(markers[index], 'click', showReportWindow);
+        setTimeout(dropMarker(index), index * 300);
+        addResult(beach, index, markerIcon);
+    })
 };
 
 function removeAllSealine() {
@@ -335,6 +311,8 @@ function clearResults() {
     }
 }
 
+const results = document.getElementById('results');
+let reportImage = document.querySelector('.reportImage');
 
 function addResult(result, i, markerIcon) {
     // let markerLetter = String.fromCharCode('A'.charCodeAt(0) + (i % 26));
