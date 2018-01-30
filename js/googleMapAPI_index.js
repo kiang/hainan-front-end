@@ -8,9 +8,6 @@ let reportInfoWindow;
 const indexPage = document.querySelector('.indexPage');
 
 indexPage.addEventListener('click', loadIndexMap);
-
-// window.addEventListener('hashchange', initIndexMap);
-
 function loadIndexMap() {
     window.addEventListener('hashchange', initIndexMap, { once: true });
 }
@@ -220,6 +217,7 @@ function display(event) {
 };
 
 function dropActivityMarker() {
+    clearResults();
     removeAllSealine();
     for (var i = 0; i < activityData.length; i++) {
         let markerLetter = String.fromCharCode('A'.charCodeAt(0) + (i % 26));
@@ -227,7 +225,7 @@ function dropActivityMarker() {
         let allCoords = activityData[i].coordinates;
         let coordPoints = allCoords.length;
         let coord = allCoords.reduce(function (accumulator, currentValue) {
-            console.log(accumulator, currentValue)
+            // console.log(accumulator, currentValue)
             return [(accumulator[0]) + (currentValue[0]) / coordPoints, (accumulator[1]) + (currentValue[1]) / coordPoints];
         }, [0, 0]);
         let lat = coord[1];
@@ -264,6 +262,7 @@ function dropActivityMarker() {
 };
 
 function dropReportMarker() {
+    clearResults();
     removeAllSealine();
     for (var i = 0; i < reportData.length; i++) {
         var markerLetter = String.fromCharCode('A'.charCodeAt(0) + (i % 26));
@@ -330,6 +329,7 @@ function clearMarkers() {
 }
 function clearResults() {
     var results = document.getElementById('results');
+    console.log(results)
     while (results.childNodes[0]) {
         results.removeChild(results.childNodes[0]);
     }
