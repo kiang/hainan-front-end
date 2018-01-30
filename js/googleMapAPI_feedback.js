@@ -52,7 +52,7 @@ function initReportMap() {
                 reportMap.setCenter(reportCurrentPosition);
                 reportMap.setZoom(15);
 
-                google.maps.event.addListener(marker, 'drag', showActivityWindow);
+                google.maps.event.addListener(marker, 'drag', showFeedbackWindow);
                 
 
             }, function () {
@@ -63,20 +63,14 @@ function initReportMap() {
             handleLocationError(false, createReportInfoWindow, reportMap.getCenter());
         }
     } else {
-        // createReportInfoWindow.open(reportMap);
-        console.log(reportMap);
-        // reportMarker.setMap(reportMap);
-        // createReportInfoWindow.setPosition(reportCurrentPosition);
-        // createReportInfoWindow.setContent('目前回報地點！');
         reportMap.setCenter(reportCurrentPosition);
         reportMap.setZoom(15);
     }
 }
 
-function showActivityWindow() {
+function showFeedbackWindow() {
     let currentMarker = this;
     let currentPositionText = currentMarker.getPosition().toString();
-    // infoWindow.setContent ('<p>Marker Location:' + currentPositionText + '</p>');
     let currentPosition = currentMarker.getPosition().toJSON();
     reportCurrentPosition = currentPosition;
     console.log(currentPosition);

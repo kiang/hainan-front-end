@@ -12,7 +12,7 @@ indexPage.addEventListener('click', loadIndexMap);
 // window.addEventListener('hashchange', initIndexMap);
 
 function loadIndexMap() {
-    window.addEventListener('hashchange', initIndexMap, {once: true});
+    window.addEventListener('hashchange', initIndexMap, { once: true });
 }
 
 
@@ -21,25 +21,175 @@ const markB = "https://developers.google.com/maps/documentation/javascript/image
 
 
 let activityData = [
-    { "cityname": "臺南市", "sealinename": "黃金海岸", "coordinates": [120.17607431485473, 22.930725534782255], "activity": "黃金海岸淨灘", "date": "2018/03/01" },
-    { "cityname": "嘉義縣", "sealinename": "東石橋畔出海口", "coordinates": [120.17892956729158, 23.4647674172182], "activity": "東石橋畔出海口淨灘", "date": "2018/03/02" },
-    { "cityname": "臺東縣", "sealinename": "豐里二號橋", "coordinates": [121.11947051560296, 22.71528595926939], "activity": "豐里二號橋淨灘", "date": "2018/03/03" },
-    { "cityname": "花蓮縣", "sealinename": "奇萊鼻至東防波", "coordinates": [121.64331533550265, 24.00214009118872], "activity": "奇萊鼻至東防波淨灘", "date": "2018/03/04" },
-    { "cityname": "新北市", "sealinename": "龍洞地質公園停車場至龍安廟前海岸", "coordinates": [121.91657066345216, 25.11731056144692], "activity": "龍洞地質公園淨灘", "date": "2018/03/05" }
+    {
+        "cityname": "臺南市", "sealinename": "黃金海岸", "coordinates": [
+            [
+                120.17607431485473,
+                22.930725534782255
+            ],
+            [
+                120.1761817932129,
+                22.92930645370021
+            ]
+        ], "activity": "黃金海岸淨灘", "date": "2018/03/01"
+    },
+    {
+        "cityname": "嘉義縣", "sealinename": "東石橋畔出海口", "coordinates": [
+            [
+                120.17892956729158,
+                23.4647674172182
+            ],
+            [
+                120.17695546145661,
+                23.46342895064905
+            ],
+            [
+                120.17670470547195,
+                23.46118648719332
+            ]
+        ], "activity": "東石橋畔出海口淨灘", "date": "2018/03/02"
+    },
+    {
+        "cityname": "臺東縣", "sealinename": "豐里二號橋", "coordinates": [
+            [
+                121.10264062872375,
+                22.706256209590048
+            ],
+            [
+                121.10674144762326,
+                22.708688485720593
+            ]
+        ], "activity": "豐里二號橋淨灘", "date": "2018/03/03"
+    },
+    {
+        "cityname": "花蓮縣", "sealinename": "奇萊鼻至東防波", "coordinates": [
+            [
+                121.64324820041658,
+                24.018650111280472
+            ],
+            [
+                121.64339840412141,
+                24.01830221583367
+            ],
+            [
+                121.64389729499818,
+                24.017165424148576
+            ],
+            [
+                121.6445678472519,
+                24.015847321207293
+            ],
+            [
+                121.64506673812868,
+                24.014578205608412
+            ],
+            [
+                121.6451183674332,
+                24.014478783106245
+            ]
+        ], "activity": "奇萊鼻至東防波淨灘", "date": "2018/03/04"
+    },
+    {
+        "cityname": "新北市", "sealinename": "龍洞地質公園停車場至龍安廟前海岸", "coordinates": [
+            [
+                121.91305137141984,
+                25.1141317045611
+            ],
+            [
+                121.91292285919191,
+                25.114015418454322
+            ]
+        ], "activity": "龍洞地質公園淨灘", "date": "2018/03/05"
+    }
 ];
 
 let reportData = [
-    { "cityname": "臺南市", "sealinename": "黃金海岸", "coordinates": [120.17607431485473, 22.930725534782255], "clean": "是", "date": "2017/09/01" },
-    { "cityname": "嘉義縣", "sealinename": "東石橋畔出海口", "coordinates": [120.17892956729158, 23.4647674172182], "clean": "否", "date": "2017/08/02" },
-    { "cityname": "臺東縣", "sealinename": "豐里二號橋", "coordinates": [121.11947051560296, 22.71528595926939], "clean": "是", "date": "2017/02/03" },
-    { "cityname": "花蓮縣", "sealinename": "奇萊鼻至東防波", "coordinates": [121.64331533550265, 24.00214009118872], "clean": "否", "date": "2017/05/04" },
-    { "cityname": "新北市", "sealinename": "龍洞地質公園停車場至龍安廟前海岸", "coordinates": [121.91657066345216, 25.11731056144692], "clean": "是", "date": "2017/06/05" }
+    {
+        "cityname": "臺南市", "sealinename": "黃金海岸", "coordinates": [
+            [
+                120.17607431485473,
+                22.930725534782255
+            ],
+            [
+                120.1761817932129,
+                22.92930645370021
+            ]
+        ], "clean": "是", "date": "2017/09/01"
+    },
+    {
+        "cityname": "嘉義縣", "sealinename": "東石橋畔出海口", "coordinates": [
+            [
+                120.17892956729158,
+                23.4647674172182
+            ],
+            [
+                120.17695546145661,
+                23.46342895064905
+            ],
+            [
+                120.17670470547195,
+                23.46118648719332
+            ]
+        ], "clean": "否", "date": "2017/08/02"
+    },
+    {
+        "cityname": "臺東縣", "sealinename": "豐里二號橋", "coordinates": [
+            [
+                121.10264062872375,
+                22.706256209590048
+            ],
+            [
+                121.10674144762326,
+                22.708688485720593
+            ]
+        ], "clean": "是", "date": "2017/02/03"
+    },
+    {
+        "cityname": "花蓮縣", "sealinename": "奇萊鼻至東防波", "coordinates": [
+            [
+                121.64324820041658,
+                24.018650111280472
+            ],
+            [
+                121.64339840412141,
+                24.01830221583367
+            ],
+            [
+                121.64389729499818,
+                24.017165424148576
+            ],
+            [
+                121.6445678472519,
+                24.015847321207293
+            ],
+            [
+                121.64506673812868,
+                24.014578205608412
+            ],
+            [
+                121.6451183674332,
+                24.014478783106245
+            ]
+        ], "clean": "否", "date": "2017/05/04"
+    },
+    {
+        "cityname": "新北市", "sealinename": "龍洞地質公園停車場至龍安廟前海岸", "coordinates": [
+            [
+                121.91305137141984,
+                25.1141317045611
+            ],
+            [
+                121.91292285919191,
+                25.114015418454322
+            ]
+        ], "clean": "是", "date": "2017/06/05"
+    }
 ];
 
 let markers = [];
 
 function initIndexMap() {
-    console.log('load')
+    // console.log('load')
     //HomePage Map
     map = new google.maps.Map(document.getElementById('map'), {
         zoom: 7,
@@ -63,17 +213,23 @@ function display(event) {
     clearResults();
     clearMarkers();
     if (this.value === "activities") {
-        dropActivityMarker(markA);
+        dropActivityMarker();
     } else {
-        dropReportMarker(markB)
+        dropReportMarker()
     }
 };
 
-function dropActivityMarker(iconImage) {
+function dropActivityMarker() {
+    removeAllSealine();
     for (var i = 0; i < activityData.length; i++) {
         let markerLetter = String.fromCharCode('A'.charCodeAt(0) + (i % 26));
-        let markerIcon = iconImage + markerLetter + '.png';
-        let coord = activityData[i].coordinates;
+        let markerIcon = `./css/GoogleMarkers/green_Marker${markerLetter}.png`;
+        let allCoords = activityData[i].coordinates;
+        let coordPoints = allCoords.length;
+        let coord = allCoords.reduce(function (accumulator, currentValue) {
+            console.log(accumulator, currentValue)
+            return [(accumulator[0]) + (currentValue[0]) / coordPoints, (accumulator[1]) + (currentValue[1]) / coordPoints];
+        }, [0, 0]);
         let lat = coord[1];
         let lng = coord[0];
 
@@ -86,18 +242,38 @@ function dropActivityMarker(iconImage) {
             sealinename: activityData[i].sealinename,
             date: activityData[i].date
         });
+
+        let googleArray = [];
+        allCoords.forEach(function (coord) {
+            let coordObj = { lat: coord[1], lng: coord[0] };
+            googleArray.push(coordObj);
+        });
+
+        dataFeature = { geometry: new google.maps.Data.MultiLineString([googleArray]) };
+
+        map.data.add(dataFeature);
+        map.data.setStyle({
+            strokeWeight: 12,
+            strokeColor: 'GREEN',
+        });
+
         google.maps.event.addListener(markers[i], 'click', showActivityWindow);
         setTimeout(dropMarker(i), i * 300);
-        addResult(activityData[i], i, iconImage);
+        addResult(activityData[i], i, markerIcon);
     };
 };
 
-function dropReportMarker(iconImage) {
-    console.log(iconImage)
+function dropReportMarker() {
+    removeAllSealine();
     for (var i = 0; i < reportData.length; i++) {
         var markerLetter = String.fromCharCode('A'.charCodeAt(0) + (i % 26));
-        var markerIcon = iconImage + markerLetter + '.png';
-        let coord = reportData[i].coordinates;
+        var markerIcon = `./css/GoogleMarkers/red_Marker${markerLetter}.png`;
+        let allCoords = activityData[i].coordinates;
+        let coordPoints = allCoords.length;
+        let coord = allCoords.reduce(function (accumulator, currentValue) {
+            // console.log(accumulator, currentValue)
+            return [(accumulator[0]) + (currentValue[0]) / coordPoints, (accumulator[1]) + (currentValue[1]) / coordPoints];
+        }, [0, 0]);
         let lat = coord[1];
         let lng = coord[0];
 
@@ -110,11 +286,33 @@ function dropReportMarker(iconImage) {
             date: reportData[i].date,
             clean: reportData[i].clean
         });
+
+        let googleArray = [];
+        allCoords.forEach(function (coord) {
+            let coordObj = { lat: coord[1], lng: coord[0] };
+            googleArray.push(coordObj);
+        });
+        dataFeature = { geometry: new google.maps.Data.MultiLineString([googleArray]) };
+
+        map.data.add(dataFeature);
+        map.data.setStyle({
+            strokeWeight: 12,
+            strokeColor: 'Red',
+        });
+
         google.maps.event.addListener(markers[i], 'click', showReportWindow);
         setTimeout(dropMarker(i), i * 300);
-        addResult(reportData[i], i, iconImage);
+        addResult(reportData[i], i, markerIcon);
     };
 };
+
+function removeAllSealine() {
+    //remove pattern
+    map.data.forEach(function (feature) {
+        console.log(feature);
+        map.data.remove(feature);
+    });
+}
 
 function dropMarker(i) {
     return function () {
@@ -138,9 +336,9 @@ function clearResults() {
 }
 
 
-function addResult(result, i, iconImage) {
-    let markerLetter = String.fromCharCode('A'.charCodeAt(0) + (i % 26));
-    let markerIcon = iconImage + markerLetter + '.png';
+function addResult(result, i, markerIcon) {
+    // let markerLetter = String.fromCharCode('A'.charCodeAt(0) + (i % 26));
+    // let markerIcon = iconImage + markerLetter + '.png';
     let tr = document.createElement('tr');
     tr.style.backgroundColor = (i % 2 === 0 ? '#F0F0F0' : '#FFFFFF');
     tr.onclick = function () {
