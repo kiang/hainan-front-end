@@ -10,19 +10,19 @@ let testReport = {
 }
 
 
-$.ajax({
-    url:'https://172.105.219.35:3000/api/beach/notification',
-    type:'GET',
-    // dataType:'json',
-    success: function (response) {
-        console.log(response);
-        reportBase = response.result;
-        console.log(reportBase)
-    },
-    error: function (jqXHR, status, errorThrown) {
-        console.log(jqXHR);
-    }
-})
+// $.ajax({
+//     url:'https://172.105.219.35:3000/api/beach/notification',
+//     type:'GET',
+//     // dataType:'json',
+//     success: function (response) {
+//         console.log(response);
+//         reportBase = response.result;
+//         console.log(reportBase)
+//     },
+//     error: function (jqXHR, status, errorThrown) {
+//         console.log(jqXHR);
+//     }
+// })
 
 function submitReport (event) {
     // reportBase.push(testReport);
