@@ -7,14 +7,16 @@ const imageStatus = document.querySelector('.imageStatus');
 const previewArea = document.querySelector('.previewArea');
 const previewTable = document.querySelector('.previewTable');
 
-uploadBtn.addEventListener('click', uploadToImgur);
+// uploadBtn.addEventListener('click', uploadToImgur);
 imageSelector.addEventListener('change', show);
 
+var imageX
 function show(event) {
     picData = imageSelector.files[0];
     console.log(picData.size)
     if (picData.size < 10485760) {
         reader = new FileReader();
+        imageX = picData;
         reader.readAsDataURL(picData);
 
         reader.onload = function () {
@@ -22,7 +24,9 @@ function show(event) {
                 previewTable.removeChild(previewTable.lastElementChild);
                 console.log(previewTable);
             }
-            previewArea.style.backgroundImage = `url(${reader.result})`;
+            let img = new Image();
+            img.src = `${reader.result}`;
+            previewArea.appendChild(img);//.style.backgroundImage
         };
     } else {
         window.alert('請重新選擇小於10MB的上傳照片！');
