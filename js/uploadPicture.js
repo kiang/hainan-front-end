@@ -20,10 +20,10 @@ function show(event) {
         reader.readAsDataURL(picData);
 
         reader.onload = function () {
-            console.log(previewTable.childElementCount)
-            if (previewTable.childElementCount === 1) {
-                previewTable.removeChild(previewTable.lastElementChild);
-                console.log(previewTable);
+            console.log(previewArea.childElementCount)
+            if (previewArea.childElementCount === 1) {
+                previewArea.removeChild(previewArea.lastElementChild);
+                console.log(previewArea);
             }
             let img = new Image();
             img.src = `${reader.result}`;
