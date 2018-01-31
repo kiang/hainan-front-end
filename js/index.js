@@ -2,6 +2,7 @@ var router = new Router();
 router.add('index', () => gotoIndex())
 router.add('active', () => active.checked = true)
 router.add('feedback', () => gotoFeedback())
+router.setIndex('index');
 
 function gotoIndex() {
     index.checked = true;
@@ -18,7 +19,7 @@ function gotoFeedback() {
 }
 
 $(document).ready(() => {
-    router.reload()
+    router.start();
 })
 
 // $(window).on('load', () => {
