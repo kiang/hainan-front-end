@@ -2,6 +2,7 @@
 let reportMarker;
 let reportMap;
 let feedbackInfoWindow;
+let bounds;
 
 let currentPosition;
 
@@ -25,7 +26,7 @@ function initReportMap() {
         });
     } else {
         reportMap.setCenter(currentPosition);
-        reportMap.setZoom(16) 
+        reportMap.setZoom(16)
     }
 }
 
@@ -78,29 +79,77 @@ function createBeachFilterOption(beachName) {
 
 function addLocationOption(event) {
     clearLocationOption()
+    if(reportMap.data) {
+      reportMap.data.forEach(function(f) {
+        reportMap.data.remove(f);
+      });
+    }
+    bounds = new google.maps.LatLngBounds();
+
     let currentBeach = this.value;
     let locationList = allBeachData.filter(function (beach) {
         return beach.beachName.includes(currentBeach);
     })
     // console.table(locationList);
     let locationNamesArray = [];
+    let colorSwitch = true;
     locationList.forEach(function (location) {
         if (locationNamesArray.includes(location.title) === false) {
             locationNamesArray.push(location.title);
-            createLocationFilterOption(location.title);
+
+            let newOption = document.createElement('option');
+            newOption.setAttribute('value', location.id);
+            newOption.textContent = location.title;
+            locationFilter.appendChild(newOption);
+
+            let googleArray = [];
+            location.geojson.forEach(function (coord) {
+                let coordObj = { lat: coord[1], lng: coord[0] };
+                googleArray.push(coordObj);
+            });
+            dataFeature = {
+              geometry: new google.maps.Data.MultiLineString([googleArray])
+            };
+
+            reportMap.data.add(dataFeature);
+            reportMap.data.setStyle(function(f) {
+              if(colorSwitch) {
+                fStrokeColor = 'blue';
+                colorSwitch = false;
+              } else {
+                fStrokeColor = 'yellow';
+                colorSwitch = true;
+              }
+              return {
+                  strokeWeight: 10,
+                  strokeColor: fStrokeColor,
+              }
+            });
         }
     })
+    reportMap.data.forEach(function(f) {
+      processPoints(f.getGeometry(), bounds.extend, bounds);
+    })
+    reportMap.fitBounds(bounds);
+}
+
+/*
+from https://stackoverflow.com/questions/28507044
+*/
+function processPoints(geometry, callback, thisArg) {
+  if (geometry instanceof google.maps.LatLng) {
+    callback.call(thisArg, geometry);
+  } else if (geometry instanceof google.maps.Data.Point) {
+    callback.call(thisArg, geometry.get());
+  } else {
+    geometry.getArray().forEach(function(g) {
+      processPoints(g, callback, thisArg);
+    });
+  }
 }
 
 const locationFilter = document.querySelector('#feedbackLocation');
 locationFilter.addEventListener('change', selectLocation);
-
-function createLocationFilterOption(locationName) {
-    let newOption = document.createElement('option');
-    newOption.setAttribute('value', locationName);
-    newOption.textContent = locationName;
-    locationFilter.appendChild(newOption);
-}
 
 function clearLocationOption() {
     while (locationFilter.childNodes[0]) {
@@ -111,7 +160,7 @@ function clearLocationOption() {
 
 function selectLocation(event) {
     console.clear();
-    
+
     let currentLocation = this.value;
     let currentLocationData = allBeachData.filter(function (position) {
         return position.title.includes(currentLocation);
@@ -179,9 +228,9 @@ function showFeedbackWindow() {
     currentPosition = currentMarker.getPosition().toJSON();
     console.log(currentPosition);
     feedbackInfoWindow.open(reportMap, reportMarker);
-    
+
     // marker.setPosition(currentPosition);
-    
+
 }
 
 function removeReportSealine() {
@@ -208,4 +257,3 @@ $.ajax({
         console.log(jqXHR);
     }
 })
-
