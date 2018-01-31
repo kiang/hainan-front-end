@@ -49,6 +49,13 @@ article {
   padding-bottom: 15px;
 }
 
+/* line 7, ../sass/partials/_article.scss */
+.previewArea img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 /* line 1, ../sass/partials/_footer.scss */
 footer {
   background-color: #ccc;
