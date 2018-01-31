@@ -31,9 +31,9 @@ function show(event) {
         };
     } else {
         window.alert('請重新選擇小於10MB的上傳照片！');
-        console.log(imageSelector.files);
-        imageStatus.innerHTML = '請重新選擇小於10MB的上傳照片！';
-        previewArea.style.backgroundImage = '';
+        // console.log(imageSelector.files);
+        // imageStatus.innerHTML = '請重新選擇小於10MB的上傳照片！';
+        previewArea.removeChild(previewArea.lastElementChild);
     }
 }
 
