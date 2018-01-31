@@ -111,12 +111,12 @@ function clearLocationOption() {
 
 function selectLocation(event) {
     console.clear();
-    console.log(currentPosition)
+    
     let currentLocation = this.value;
     let currentLocationData = allBeachData.filter(function (position) {
         return position.title.includes(currentLocation);
     })
-    console.log(currentLocationData);
+    // console.log(currentLocationData);
     drawSelectPosition(currentLocationData[0]);
 }
 
@@ -142,6 +142,9 @@ function drawSelectPosition(dataObj) {
         // date: beach.date,
         // clean: beach.clean
     });
+
+    currentPosition = { lat: coord[1], lng: coord[0] };
+    console.log(currentPosition)
 
     reportMap.setCenter({lat: coord[1], lng: coord[0]});
     reportMap.setZoom(16);
@@ -174,7 +177,7 @@ function showFeedbackWindow() {
     // console.log(currentMarker.getPosition().toJSON());
     // feedbackInfoWindow.setContent ('<p>Marker Location:' + currentPositionText + '</p>');
     currentPosition = currentMarker.getPosition().toJSON();
-    // console.log(currentPosition);
+    console.log(currentPosition);
     feedbackInfoWindow.open(reportMap, reportMarker);
     
     // marker.setPosition(currentPosition);
@@ -184,7 +187,7 @@ function showFeedbackWindow() {
 function removeReportSealine() {
     //remove pattern
     reportMap.data.forEach(function (feature) {
-        console.log(feature);
+        // console.log(feature);
         reportMap.data.remove(feature);
     });
 }
