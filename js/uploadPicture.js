@@ -20,7 +20,8 @@ function show(event) {
         reader.readAsDataURL(picData);
 
         reader.onload = function () {
-            if (previewTable.childElementCount === 2) {
+            console.log(previewTable.childElementCount)
+            if (previewTable.childElementCount === 1) {
                 previewTable.removeChild(previewTable.lastElementChild);
                 console.log(previewTable);
             }
