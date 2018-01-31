@@ -14,7 +14,7 @@ function loadFeedbackMap() {
 // window.addEventListener('hashchange', initReportMap);
 
 function initReportMap() {
-    console.log(currentPosition);
+    // console.log(currentPosition);
     if (currentPosition === undefined) {
         reportMap = new google.maps.Map(document.getElementById('reportMap'), {
             center: { lat: 24.3, lng: 120.51 },
@@ -111,12 +111,13 @@ function clearLocationOption() {
 
 function selectLocation(event) {
     console.clear();
-    let currentPosition = this.value;
-    let currentPositionData = allBeachData.filter(function (position) {
-        return position.title.includes(currentPosition);
+    console.log(currentPosition)
+    let currentLocation = this.value;
+    let currentLocationData = allBeachData.filter(function (position) {
+        return position.title.includes(currentLocation);
     })
-    console.log(currentPositionData);
-    drawSelectPosition(currentPositionData[0]);
+    console.log(currentLocationData);
+    drawSelectPosition(currentLocationData[0]);
 }
 
 function drawSelectPosition(dataObj) {
@@ -169,7 +170,7 @@ function drawSelectPosition(dataObj) {
 //取得marker 移動座標
 function showFeedbackWindow() {
     let currentMarker = this;
-    let currentPositionText = currentMarker.getPosition().toString();
+    // let currentPositionText = currentMarker.getPosition().toString();
     // console.log(currentMarker.getPosition().toJSON());
     // feedbackInfoWindow.setContent ('<p>Marker Location:' + currentPositionText + '</p>');
     currentPosition = currentMarker.getPosition().toJSON();
